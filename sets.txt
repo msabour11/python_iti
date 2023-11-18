@@ -1,0 +1,96 @@
+In Python, a set is an unordered collection of unique elements.
+ It is defined by placing its elements inside curly braces {} and separating them by commas.
+ Sets are similar to lists or tuples, but they do not allow duplicate elements.
+ Additionally, sets do not have an inherent order,
+ meaning that the elements are not stored in any particular sequence
+
+ Adding Elements:
+
+You can use the add() method to add a single element to a set.
+
+python
+Copy code
+my_set.add(6)
+To add multiple elements at once, you can use the update() method.
+
+python
+Copy code
+my_set.update({7, 8, 9})
+Removing Elements:
+
+The remove() method removes a specified element from the set. If the element is not present, it raises a KeyError.
+
+python
+Copy code
+my_set.remove(3)
+The discard() method also removes a specified element from the set, but it does not raise an error if the element is not present.
+
+python
+Copy code
+my_set.discard(10)
+The pop() method removes and returns an arbitrary element from the set. Since sets are unordered, the element removed is not guaranteed to be the last one.
+
+Set Operations:
+
+Union (|): Returns a new set containing all unique elements from both sets.
+
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+union_set = set1 | set2  # or use set1.union(set2)
+Intersection (&): Returns a new set containing only the common elements between two sets.
+
+intersection_set = set1 & set2  # or use set1.intersection(set2)
+Difference (-): Returns a new set containing elements present in the first set but not in the second set.
+
+
+difference_set = set1 - set2  # or use set1.difference(set2)
+Symmetric Difference (^): Returns a new set containing elements that are unique to each set.
+
+symmetric_difference_set = set1 ^ set2  # or use set1.symmetric_difference(set2)
+
+In Python, a hashable data type is an object whose value does not change during its lifetime,
+ and it has a hash value that remains constant. The hash value is an integer
+ that is used to quickly compare dictionary keys during a lookup. Hashable objects
+  are used as keys in dictionaries or elements in sets.
+
+Here are some characteristics of hashable objects:
+
+Immutability: Hashable objects must be immutable, meaning their values cannot be changed after creation.
+ This ensures that the hash value remains constant.
+
+Hash Value: Objects must have a hash value, which is obtained using the hash() function in Python.
+The hash value is used to quickly locate a particular object in hash-based data structures like dictionaries.
+
+Equality: Hashable objects must also implement equality by providing a method (__eq__()).
+If two objects are equal, their hash values must be equal as well.
+
+Common hashable data types in Python include:
+
+Numbers (int, float): Integer and floating-point numbers are hashable.
+
+Strings: String objects are hashable.
+
+Tuples: Tuples are hashable if their elements are hashable.
+
+Booleans: True and False are hashable.
+
+Frozensets: Immutable sets, represented by the frozenset type, are hashable.
+
+Some Built-in Types: Other built-in types like None, tuple, and frozenset are hashable.
+
+Here's an example to illustrate hashable and non-hashable types:
+
+python
+Copy code
+# Hashable types
+hash(42)            # Integer
+hash(3.14)          # Float
+hash("hello")       # String
+hash((1, 2, 3))     # Tuple
+hash(True)          # Boolean
+hash(frozenset({1, 2, 3}))  # Frozenset
+
+# Non-hashable types
+hash([1, 2, 3])     # Lists are not hashable because they are mutable
+hash({1, 2, 3})     # Sets are not hashable because they are mutable
+In the example above, attempting to hash a list or a set, which are mutable types, will result in a TypeError because their values can change, making them unsuitable for use as dictionary keys or set elements. Immutable types, on the other hand, are hashable and can be used in these contexts.
